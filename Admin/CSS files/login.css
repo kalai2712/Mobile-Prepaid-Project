@@ -1,0 +1,280 @@
+:root {
+    --primary-color: #4361ee;
+    --primary-dark: #3f37c9;
+    --secondary-color: #6c757d;
+    --text-color: #333;
+    --bg-color: #f9fafb;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 10px;
+    --transition: all 0.3s ease;
+    --error-color: #dc3545;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.login-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    z-index: 1;
+}
+
+.background-illustration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://via.placeholder.com/400x600?text=Illustration') no-repeat center;
+    background-size: cover;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.login-form {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.form-screen {
+    display: none;
+}
+
+.form-screen.active {
+    display: block;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+p {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.mobile-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.country-code {
+    padding: 10px;
+    background-color: #e9ecef;
+    border-right: 1px solid #ced4da;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(67, 97, 238, 0.3);
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: none;
+}
+
+.alternative-login {
+    margin-top: 15px;
+}
+
+.alternative-login a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.alternative-login a:hover {
+    text-decoration: underline;
+}
+
+.help-link {
+    margin-top: 20px;
+}
+
+.help-link a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.help-link a:hover {
+    color: var(--primary-color);
+}
+
+.resend-otp {
+    margin-top: 15px;
+}
+
+.resend-otp a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.resend-otp a.disabled {
+    color: var(--secondary-color);
+    pointer-events: none;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    position: relative;
+    max-width: 350px;
+    width: 90%;
+}
+
+.popup-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.popup-content p {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+#otpDisplay {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--dark);
+}
+
+@media (max-width: 480px) {
+    .login-form, .popup-content {
+        padding: 20px;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Prepaid Admin Dashboard</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="/Prepaid - Project/Admin/CSS files/admin-dashboard.css">
+</head>
+<body>
+    <!-- Sidebar navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1>PayNGo Admin</h1>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="admin-dashboard.html" class="menu-item active">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="user-management.html" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Users</span>
+            </a>
+            <a href="plan-management.html" class="menu-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Plans</span>
+            </a>
+            <a href="transaction-management.html" class="menu-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Transactions</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-headset"></i>
+                <span>Support</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" class="menu-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main content area -->
+    <main class="main-content">
+        <div class="page-header">
+            <div class="page-title">
+                <h2>Dashboard Overview</h2>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar"><span>A</span></div>
+                <div class="user-name">ADMIN</div>
+            </div>
+        </div>
+
+        <section class="metrics-container">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div>
+                        <div class="metric-value">12,845</div>
+                        <div class="metric-label">Total Users</div>
+                    </div>
+                    <div class="metric-icon users-icon"><i class="fas fa-users"></i></div>
+                </div>
+                <div class="metric-growth">+12% from last month</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div>
+                        <div class="metric-value">8,521</div>
+                        <div class="metric-label">Active Users</div>
+                    </div>
+                    <div class="metric-icon active-icon"><i class="fas fa-user-check"></i></div>
+                </div>
+                <div class="metric-growth">+8% from last month</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div>
+                        <div class="metric-value">3,267</div>
+                        <div class="metric-label">Transactions</div>
+                    </div>
+                    <div class="metric-icon transactions-icon"><i class="fas fa-exchange-alt"></i></div>
+                </div>
+                <div class="metric-growth">+15% from last month</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div>
+                        <div class="metric-value">₹92,436</div>
+                        <div class="metric-label">Revenue</div>
+                    </div>
+                    <div class="metric-icon revenue-icon"><i class="fas fa-rupee-sign"></i></div>
+                </div>
+                <div class="metric-growth">+10% from last month</div>
+            </div>
+        </section>
+
+        <section class="charts-container">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">User Activity</div>
+                    <div class="chart-filter">
+                        <select id="userActivityTimeframe">
+                            <option value="week">Last Week</option>
+                            <option value="month" selected>Last Month</option>
+                            <option value="quarter">Last Quarter</option>
+                            <option value="year">Last Year</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-body">
+                    <canvas id="userActivityChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">Sales Distribution</div>
+                    <div class="chart-filter">
+                        <select id="salesDistributionTimeframe">
+                            <option value="week">Last Week</option>
+                            <option value="month" selected>Last Month</option>
+                            <option value="quarter">Last Quarter</option>
+                            <option value="year">Last Year</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-body">
+                    <canvas id="salesDistributionChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="transactions-container">
+            <div class="transactions-header">
+                <div class="transactions-title">Recent Transactions</div>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <table class="transactions-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#TX12345</td>
+                        <td>Dilip</td>
+                        <td>Recharge</td>
+                        <td>₹399</td>
+                        <td>28 Feb 2025</td>
+                        <td><span class="transaction-status status-completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>#TX12344</td>
+                        <td>Kalai</td>
+                        <td>Plan Purchase</td>
+                        <td>₹999</td>
+                        <td>28 Feb 2025</td>
+                        <td><span class="transaction-status status-completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>#TX12343</td>
+                        <td>Prem</td>
+                        <td>Data Add-on</td>
+                        <td>₹199</td>
+                        <td>27 Feb 2025</td>
+                        <td><span class="transaction-status status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>#TX12342</td>
+                        <td>Karthi</td>
+                        <td>Recharge</td>
+                        <td>₹499</td>
+                        <td>27 Feb 2025</td>
+                        <td><span class="transaction-status status-completed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>#TX12341</td>
+                        <td>Fazil</td>
+                        <td>Plan Purchase</td>
+                        <td>₹399</td>
+                        <td>26 Feb 2025</td>
+                        <td><span class="transaction-status status-failed">Failed</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="quick-actions">
+            <button class="action-button"><i class="fas fa-user-plus"></i> Add New User</button>
+            <button class="action-button"><i class="fas fa-search"></i> Search Transactions</button>
+            <button class="action-button"><i class="fas fa-file-export"></i> Export Reports</button>
+        </section>
+    </main>
+
+    <!-- Chart.js for graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/Prepaid - Project/Admin/JS files/admin-dashboard.js"></script>
+</body>
+</html>

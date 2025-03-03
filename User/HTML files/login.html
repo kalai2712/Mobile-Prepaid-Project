@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | PayNGo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Prepaid - Project/User/CSS files/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <div class="brand">Pay<span>NGo</span></div>
+            <h1>Mobile Recharge Login</h1>
+            <p>Enter your credentials to continue</p>
+        </div>
+        
+        <div class="login-form">
+            <div class="step active" id="step1">
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <div class="mobile-input-container">
+                        <span class="country-code">+91</span>
+                        <input type="tel" id="mobileNumber" class="form-control mobile-input" placeholder="Enter 10 digit mobile number" inputmode="numeric" pattern="[0-9]*" maxlength="10">
+                    </div>
+                    <div id="mobile-error" class="error-message">Please enter a valid 10 digit mobile number</div>
+                </div>
+                
+                <button id="sendOtpBtn" class="btn">Send OTP</button>
+            </div>
+            
+            <div class="step" id="step2">
+                <div class="form-group">
+                    <label>Enter OTP sent to <span id="displayMobile"></span></label>
+                    <div class="otp-container">
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" class="otp-input" maxlength="1" data-index="1">
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" class="otp-input" maxlength="1" data-index="2">
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" class="otp-input" maxlength="1" data-index="3">
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" class="otp-input" maxlength="1" data-index="4">
+                    </div>
+                    <div id="otp-error" class="error-message">Please enter a valid OTP</div>
+                </div>
+                
+                <div class="timer">
+                    Resend OTP in <span id="timerCount">30</span> seconds
+                </div>
+                
+                <button id="verifyOtpBtn" class="btn">Verify OTP</button>
+                <p style="text-align: center; margin-top: 20px;">
+                    <a href="#" id="backToMobile">Change mobile number</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="/Prepaid - Project/User/JS files/login.js"></script>
+</body>
+</html>

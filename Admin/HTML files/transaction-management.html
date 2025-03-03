@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Management - MobilePay Admin</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="/Prepaid - Project/Admin/CSS files/transaction-management.css">
+</head>
+<body>
+    <!-- Sidebar navigation (same as admin dashboard) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1>PayNGo Admin</h1>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="admin-dashboard.html" class="menu-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="user-management.html" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Users</span>
+            </a>
+            <a href="plan-management.html" class="menu-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Plans</span>
+            </a>
+            <a href="transaction-management.html" class="menu-item active">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Transactions</span>
+            </a>
+            <!-- <a href="#" class="menu-item">
+                <i class="fas fa-gift"></i>
+                <span>Promotions</span>
+            </a> -->
+            <a href="#" class="menu-item">
+                <i class="fas fa-headset"></i>
+                <span>Support</span>
+            </a>
+            <!-- <a href="#" class="menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a> -->
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" class="menu-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main content area -->
+    <main class="main-content">
+        <!-- Page header with user info -->
+        <div class="page-header">
+            <div class="page-title">
+                <h1>Recharge & Transaction Management</h1>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <span>A</span>
+                </div>
+                <div class="user-name">ADMIN</div>
+            </div>
+        </div>
+
+        <!-- Transactions section -->
+        <section class="transactions-container">
+            <div class="transactions-header">
+                <div class="transactions-title">All Transactions</div>
+            </div>
+            <div class="d-flex justify-between align-center mb-20 flex-wrap gap-20">
+                <!-- Search Box -->
+                <div class="search-box">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search by user...">
+                    <span class="search-icon"><i class="fas fa-search"></i></span>
+                </div>
+                <div class="d-flex gap-10 flex-wrap">
+                    <!-- Filter Dropdowns -->
+                    <input type="date" id="dateFilter" class="form-control">
+                    <select id="amountFilter" class="form-control">
+                        <option value="">All Amounts</option>
+                        <option value="0-500">₹0 - ₹500</option>
+                        <option value="501-1000">₹501 - ₹1000</option>
+                        <option value="1001+">₹1001+</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-container">
+                <table id="transactionsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionsTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Refund Modal -->
+        <div id="refundModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Refund Transaction</h3>
+                    <button class="close" onclick="closeModal('refundModal')">×</button>
+                </div>
+                <form id="refundForm">
+                    <input type="hidden" id="refundTransactionId">
+                    <p class="mb-10">Refund for: <strong id="refundUserName"></strong></p>
+                    <div class="form-group">
+                        <label for="refundAmount">Refund Amount (₹)</label>
+                        <input type="number" id="refundAmount" class="form-control" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="refundReason">Reason</label>
+                        <textarea id="refundReason" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('refundModal')">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Refund</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content" style="max-width: 400px;">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="confirmationTitle">Confirmation</h3>
+                    <button class="close" onclick="closeModal('confirmationModal')">×</button>
+                </div>
+                <div id="confirmationMessage" class="mb-20">
+                    Are you sure you want to proceed with this action?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('confirmationModal')">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmButton">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Link to custom JS -->
+    <script src="/Prepaid - Project/Admin/JS files/transaction-management.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayNGo - Payment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Prepaid - Project/User/CSS files/payment.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pay<span>NGo</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="plan.html">Plans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Offers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="help.html">Help</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container payment-container" style="margin-top: 100px;">
+        <h2 class="section-title">Complete Your Payment</h2>
+        
+        <div class="summary-card">
+            <div class="summary-header">
+                <h3>Payment Summary</h3>
+            </div>
+            <div class="summary-body">
+                <div class="summary-row">
+                    <div class="mobile-info">
+                        <i class="fas fa-mobile-alt mobile-icon"></i>
+                        <div>
+                            <div class="fw-bold">Mobile Number</div>
+                            <div id="mobileDisplay">Loading...</div>
+                        </div>
+                    </div>
+                    <a href="plans.html" class="text-decoration-none" style="color: var(--primary);">Change</a>
+                </div>
+                <div class="summary-row">
+                    <div>
+                        <div class="fw-bold">Plan Amount</div>
+                        <div id="planPrice">Loading...</div>
+                    </div>
+                </div>
+                <div class="summary-row">
+                    <div>
+                        <div class="fw-bold">Validity</div>
+                        <div id="planValidity">Loading...</div>
+                    </div>
+                </div>
+                <div class="summary-row">
+                    <div>
+                        <div class="fw-bold">Data</div>
+                        <div id="planData">Loading...</div>
+                    </div>
+                </div>
+                <div class="summary-row">
+                    <div>
+                        <div class="fw-bold">Benefits</div>
+                        <div id="planBenefits">Loading...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="amount-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">Total Amount</h4>
+                <div class="total-amount" id="totalAmount">₹0</div>
+            </div>
+        </div>
+        
+        <div class="payment-methods">
+            <h4 class="section-title">Select Payment Method</h4>
+            
+            <div class="payment-method active" data-method="upi" onclick="selectPaymentMethod(this, 'upi')">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-mobile-alt payment-icon"></i>
+                    <div>
+                        <div class="fw-bold">UPI</div>
+                        <div class="text-muted">Pay using any UPI app</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="upiForm" class="payment-form active">
+                <form id="upi-form">
+                    <div class="form-group">
+                        <label for="upiId" class="form-label">UPI ID</label>
+                        <input type="text" class="form-control" id="upiId" placeholder="Enter your UPI ID">
+                        <div class="error-message" id="upiId-error">Please enter a valid UPI ID (e.g., name@upi)</div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="payment-method" data-method="card" onclick="selectPaymentMethod(this, 'card')">
+                <div class="d-flex align-items-center">
+                    <i class="far fa-credit-card payment-icon"></i>
+                    <div>
+                        <div class="fw-bold">Credit/Debit Card</div>
+                        <div class="text-muted">Visa, Mastercard, RuPay & more</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cardForm" class="payment-form">
+                <form id="card-form">
+                    <div class="form-group">
+                        <label for="cardNumber" class="form-label">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber" placeholder="Enter your 16-digit card number">
+                        <div class="error-message" id="cardNumber-error">Please enter a valid 16-digit card number</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cardName" class="form-label">Name on Card</label>
+                        <input type="text" class="form-control" id="cardName" placeholder="Enter your name">
+                        <div class="error-message" id="cardName-error">Please enter the name as it appears on your card</div>
+                    </div>
+                    
+                    <div class="expiry-cvv-container">
+                        <div class="form-group">
+                            <label for="expiryDate" class="form-label">Expiry Date</label>
+                            <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
+                            <div class="error-message" id="expiryDate-error">Please enter a valid expiry date (MM/YY)</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="password" class="form-control" id="cvv" placeholder="Enter your 3-digit CVV">
+                            <div class="error-message" id="cvv-error">Please enter a valid 3-digit CVV</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="payment-method" data-method="netbanking" onclick="selectPaymentMethod(this, 'netbanking')">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-university payment-icon"></i>
+                    <div>
+                        <div class="fw-bold">Net Banking</div>
+                        <div class="text-muted">All major banks supported</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="netbankingForm" class="payment-form">
+                <form id="netbanking-form">
+                    <div class="form-group">
+                        <label for="bankSelect" class="form-label">Select Bank</label>
+                        <select class="form-select" id="bankSelect">
+                            <option value="">Select your bank</option>
+                            <option value="sbi">State Bank of India</option>
+                            <option value="hdfc">HDFC Bank</option>
+                            <option value="icici">ICICI Bank</option>
+                            <option value="axis">Axis Bank</option>
+                            <option value="other">Other Banks</option>
+                        </select>
+                        <div class="error-message" id="bankSelect-error">Please select your bank</div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="payment-method" data-method="wallet" onclick="selectPaymentMethod(this, 'wallet')">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-wallet payment-icon"></i>
+                    <div>
+                        <div class="fw-bold">Wallet</div>
+                        <div class="text-muted">Paytm, PhonePe, Amazon Pay & more</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="walletForm" class="payment-form">
+                <form id="wallet-form">
+                    <div class="form-group">
+                        <label for="walletSelect" class="form-label">Select Wallet</label>
+                        <select class="form-select" id="walletSelect">
+                            <option value="">Select your wallet</option>
+                            <option value="paytm">Paytm</option>
+                            <option value="phonepe">PhonePe</option>
+                            <option value="amazonpay">Amazon Pay</option>
+                            <option value="mobikwik">MobiKwik</option>
+                        </select>
+                        <div class="error-message" id="walletSelect-error">Please select your wallet</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="walletMobile" class="form-label">Mobile Number</label>
+                        <input type="text" class="form-control" id="walletMobile" placeholder="10-digit mobile number">
+                        <div class="error-message" id="walletMobile-error">Please enter a valid 10-digit mobile number</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <button class="btn btn-pay" id="payButton">Pay Now</button>
+    </div>
+    
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="/Prepaid - Project/User/JS files/payment.js"></script>
+</body>
+</html>

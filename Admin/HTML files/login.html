@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - PayNGo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/Prepaid - Project/Admin/CSS files/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="background-illustration"></div>
+
+        <div class="login-form">
+            <div class="logo">
+                <h1>PayNGo Admin</h1>
+            </div>
+
+            <div id="mobileScreen" class="form-screen active">
+                <h2>Admin Login</h2>
+                <p>Enter your mobile number</p>
+                <form id="mobileForm">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number</label>
+                        <div class="mobile-input">
+                            <span class="country-code">+91</span>
+                            <input type="tel" id="mobileNumber" class="form-control" placeholder="Enter your mobile number" required maxlength="10" pattern="[0-9]{10}">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send OTP</button>
+                    <div id="mobileError" class="error-message"></div>
+                    <p class="alternative-login">
+                        <a href="#" id="switchToEmail">Login with Email</a>
+                    </p>
+                </form>
+            </div>
+
+            <div class="help-link">
+                <a href="#">Need Help? Contact Support</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="otpPopup" class="popup">
+        <div class="popup-content">
+            <h3>Enter OTP</h3>
+            <p>OTP sent to your mobile: <strong id="otpDisplay"></strong></p>
+            <input type="text" id="otpInput" class="form-control" placeholder="Enter OTP" maxlength="6">
+            <div id="otpError" class="error-message"></div>
+            <button id="verifyOtpBtn" class="btn btn-primary">Verify OTP</button>
+            <p class="resend-otp">Didn't receive OTP? <a href="#" id="resendOtp">Resend OTP</a> (<span id="timer">30</span>s)</p>
+            <button class="close-btn" onclick="closePopup('otpPopup')">×</button>
+        </div>
+    </div>
+
+    <div id="successPopup" class="popup">
+        <div class="popup-content">
+            <h3>Login Successful</h3>
+            <p>Redirecting to dashboard...</p>
+            <button class="close-btn" onclick="closePopup('successPopup')">×</button>
+        </div>
+    </div>
+
+    <div id="errorPopup" class="popup">
+        <div class="popup-content">
+            <h3>Error</h3>
+            <p id="errorMessage"></p>
+            <button class="btn btn-secondary" onclick="closePopup('errorPopup')">OK</button>
+            <button class="close-btn" onclick="closePopup('errorPopup')">×</button>
+        </div>
+    </div>
+
+    <script src="/Prepaid - Project/Admin/JS files/login.js"></script>
+</body>
+</html>

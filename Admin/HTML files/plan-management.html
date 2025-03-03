@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepaid Plan Management - MobilePay Admin</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="/Prepaid - Project/Admin/CSS files/plan-management.css">
+</head>
+<body>
+    <!-- Sidebar navigation (same as admin dashboard) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1>PayNGo Admin</h1>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="admin-dashboard.html" class="menu-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="user-management.html" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Users</span>
+            </a>
+            <a href="plan-management.html" class="menu-item active">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Plans</span>
+            </a>
+            <a href="transaction-management.html" class="menu-item">
+                <i class="fas fa-exchange-alt"></i>
+                <span>Transactions</span>
+            </a>
+            <!-- <a href="#" class="menu-item">
+                <i class="fas fa-gift"></i>
+                <span>Promotions</span>
+            </a> -->
+            <a href="#" class="menu-item">
+                <i class="fas fa-headset"></i>
+                <span>Support</span>
+            </a>
+            <!-- <a href="#" class="menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a> -->
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#" class="menu-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main content area -->
+    <main class="main-content">
+        <!-- Page header with user info -->
+        <div class="page-header">
+            <div class="page-title">
+                <h2>Prepaid Plan Management</h2>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">
+                    <span>A</span>
+                </div>
+                <div class="user-name">ADMIN</div>
+            </div>
+        </div>
+
+        <!-- Plans section -->
+        <section class="plans-container">
+            <div class="plans-header">
+                <div class="plans-title">All Plans</div>
+                <button class="action-button" id="addPlanBtn">
+                    <i class="fas fa-plus"></i>
+                    Add New Plan
+                </button>
+            </div>
+            <div class="filter-container">
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+            <table class="plans-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Validity</th>
+                        <th>Benefits</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="plansTableBody">
+                    <!-- Populated by JavaScript -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Add/Edit Plan Modal -->
+        <div class="modal" id="planFormModal">
+            <div class="modal-content">
+                <span class="close-modal">×</span>
+                <h2 id="modalTitle">Add New Plan</h2>
+                <form id="planForm">
+                    <div class="form-group">
+                        <label for="planName">Plan Name</label>
+                        <input type="text" id="planName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="planPrice">Price (₹)</label>
+                        <input type="number" id="planPrice" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="planValidity">Validity (days)</label>
+                        <input type="number" id="planValidity" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="planBenefits">Benefits</label>
+                        <textarea id="planBenefits" rows="4" required placeholder="e.g., 10GB Data, Unlimited Calls"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="planStatus">Status</label>
+                        <select id="planStatus" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="action-button">Save</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Link to custom JS -->
+    <script src="/Prepaid - Project/Admin/JS files/plan-management.js"></script>
+</body>
+</html>
