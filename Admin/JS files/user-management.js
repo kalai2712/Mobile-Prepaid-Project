@@ -1,4 +1,3 @@
-// Sample user data with Indian Rupees
 let users = [
     { id: 1, name: "Kalaiyarasan", email: "kalai@example.com", plan: "premium", balance: 1250.50, status: "active", created: "2023-01-15", lastLogin: "2023-06-10 14:25:30" },
     { id: 2, name: "Dilip", email: "dilip@example.com", plan: "basic", balance: 340.20, status: "active", created: "2023-02-20", lastLogin: "2023-06-12 09:15:45" },
@@ -12,13 +11,12 @@ let users = [
     { id: 10, name: "Prasanna", email: "prasanna@example.com", plan: "basic", balance: 420.90, status: "inactive", created: "2023-04-03", lastLogin: "2023-05-30 09:05:40" }
 ];
 
-// Sample transaction data with Indian Rupees
 const generateTransactions = (userId) => {
     const types = ["payment", "refund", "subscription", "withdrawal"];
     const statuses = ["completed", "pending", "failed"];
     const transactions = [];
     
-    const count = Math.floor(Math.random() * 5) + 3; // 3-7 transactions
+    const count = Math.floor(Math.random() * 5) + 3; 
     
     for (let i = 0; i < count; i++) {
         const type = types[Math.floor(Math.random() * types.length)];
@@ -42,12 +40,11 @@ const generateTransactions = (userId) => {
     return transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
 };
 
-// Sample activity data with Indian Rupees
 const generateActivities = (userId) => {
     const actions = ["login", "password_change", "profile_update", "subscription_change", "payment"];
     const activities = [];
     
-    const count = Math.floor(Math.random() * 5) + 3; // 3-7 activities
+    const count = Math.floor(Math.random() * 5) + 3;
     
     for (let i = 0; i < count; i++) {
         const action = actions[Math.floor(Math.random() * actions.length)];
@@ -88,27 +85,22 @@ const generateActivities = (userId) => {
     return activities.sort((a, b) => new Date(b.date) - new Date(a.date));
 };
 
-// Pagination variables
 let currentPage = 1;
 const rowsPerPage = 5;
 
-// Sorting variables
 let currentSort = { field: 'id', direction: 'asc' };
 
-// Filter variables
 let filters = {
     search: '',
     status: '',
     plan: ''
 };
 
-// Initialize the app
 document.addEventListener('DOMContentLoaded', function() {
     renderTable();
     setupEventListeners();
 });
 
-// Setup event listeners
 function setupEventListeners() {
     document.getElementById('addUserForm').addEventListener('submit', handleAddUser);
     document.getElementById('editUserForm').addEventListener('submit', handleEditUser);
@@ -123,19 +115,16 @@ function setupEventListeners() {
     });
 }
 
-// Handle search input
 function handleSearch(event) {
     filters.search = event.target.value.toLowerCase();
     renderTable();
 }
 
-// Handle filter change
 function handleFilter(event) {
     filters[event.target.id.replace('Filter', '')] = event.target.value;
     renderTable();
 }
 
-// Handle sort click
 function handleSort(field) {
     if (currentSort.field === field) {
         currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
@@ -146,15 +135,12 @@ function handleSort(field) {
     renderTable();
 }
 
-// Handle tab click
 function handleTabClick(tab) {
     document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
     document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
     document.getElementById(tab).classList.add('active');
 }
-
-// Render table
 function renderTable() {
     const filteredUsers = users.filter(user => {
         return (
@@ -195,7 +181,6 @@ function renderTable() {
     renderPagination(sortedUsers.length);
 }
 
-// Render pagination
 function renderPagination(totalRows) {
     const totalPages = Math.ceil(totalRows / rowsPerPage);
     const pagination = document.getElementById('pagination');
@@ -214,17 +199,14 @@ function renderPagination(totalRows) {
     }
 }
 
-// Open modal
 function openModal(modalId) {
     document.getElementById(modalId).style.display = 'block';
 }
 
-// Close modal
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
 
-// Handle add user
 function handleAddUser(event) {
     event.preventDefault();
     const form = event.target;
@@ -244,7 +226,6 @@ function handleAddUser(event) {
     renderTable();
 }
 
-// Handle edit user
 function handleEditUser(event) {
     event.preventDefault();
     const form = event.target;
@@ -259,7 +240,6 @@ function handleEditUser(event) {
     renderTable();
 }
 
-// Handle delete user confirmation
 function confirmDelete(userId) {
     const user = users.find(user => user.id === userId);
     document.getElementById('confirmationTitle').textContent = 'Confirm Deletion';
@@ -272,14 +252,12 @@ function confirmDelete(userId) {
     };
 }
 
-// Handle delete user
 function handleDeleteUser(userId) {
     users = users.filter(user => user.id !== userId);
     closeModal('confirmationModal');
     renderTable();
 }
 
-// Open user details modal
 function openUserDetails(userId) {
     const user = users.find(user => user.id === userId);
     document.getElementById('detailUserId').textContent = user.id;
@@ -322,7 +300,6 @@ function openUserDetails(userId) {
     openModal('userDetailsModal');
 }
 
-// Open edit user modal
 function openEditUserModal(userId) {
     const user = users.find(user => user.id === userId);
     document.getElementById('editUserId').value = user.id;

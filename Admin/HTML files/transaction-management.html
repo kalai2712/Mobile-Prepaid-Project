@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction Management - MobilePay Admin</title>
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Link to custom CSS -->
-    <link rel="stylesheet" href="/Prepaid - Project/Admin/CSS files/transaction-management.css">
+    <link rel="stylesheet" href="/PrepaidProject/Admin/CSS files/transaction-management.css">
 </head>
 <body>
-    <!-- Sidebar navigation (same as admin dashboard) -->
     <aside class="sidebar">
         <div class="sidebar-header">
             <h1>PayNGo Admin</h1>
@@ -53,9 +50,7 @@
         </div>
     </aside>
 
-    <!-- Main content area -->
     <main class="main-content">
-        <!-- Page header with user info -->
         <div class="page-header">
             <div class="page-title">
                 <h1>Recharge & Transaction Management</h1>
@@ -68,19 +63,16 @@
             </div>
         </div>
 
-        <!-- Transactions section -->
         <section class="transactions-container">
             <div class="transactions-header">
                 <div class="transactions-title">All Transactions</div>
             </div>
             <div class="d-flex justify-between align-center mb-20 flex-wrap gap-20">
-                <!-- Search Box -->
                 <div class="search-box">
                     <input type="text" id="searchInput" class="form-control" placeholder="Search by user...">
                     <span class="search-icon"><i class="fas fa-search"></i></span>
                 </div>
                 <div class="d-flex gap-10 flex-wrap">
-                    <!-- Filter Dropdowns -->
                     <input type="date" id="dateFilter" class="form-control">
                     <select id="amountFilter" class="form-control">
                         <option value="">All Amounts</option>
@@ -104,13 +96,11 @@
                         </tr>
                     </thead>
                     <tbody id="transactionsTableBody">
-                        <!-- Populated by JavaScript -->
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- Refund Modal -->
         <div id="refundModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -136,7 +126,6 @@
             </div>
         </div>
 
-        <!-- Confirmation Modal -->
         <div id="confirmationModal" class="modal">
             <div class="modal-content" style="max-width: 400px;">
                 <div class="modal-header">
@@ -154,7 +143,6 @@
         </div>
     </main>
 
-    <!-- Link to custom JS -->
-    <script src="/Prepaid - Project/Admin/JS files/transaction-management.js"></script>
+    <script src="/PrepaidProject/Admin/JS files/transaction-management.js"></script>
 </body>
 </html>

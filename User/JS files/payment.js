@@ -1,4 +1,3 @@
-// Functions from payment.js document
 function selectPaymentMethod(element, method) {
     document.querySelectorAll('.payment-method').forEach(method => method.classList.remove('active'));
     element.classList.add('active');
@@ -242,7 +241,6 @@ function createReceiptPopup(planDetails, mobileNumber, paymentMethod) {
     return popupOverlay;
 }
 
-// DOMContentLoaded event handler from inline script
 document.addEventListener('DOMContentLoaded', () => {
     const mobileNumber = localStorage.getItem('MOBILE_KEY');
     if (!mobileNumber) {

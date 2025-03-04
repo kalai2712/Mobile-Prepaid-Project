@@ -23,7 +23,6 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
 header {
     background-color: var(--card-bg);
     padding: 15px 20px;
@@ -75,7 +74,6 @@ h1 {
     color: var(--secondary-color);
 }
 
-/* Main Content */
 main {
     padding: 20px;
     max-width: 800px;
@@ -96,7 +94,6 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Issue Form */
 .form-group {
     margin-bottom: 20px;
 }
@@ -156,7 +153,6 @@ textarea.form-control {
     background-color: #5a6268;
 }
 
-/* Quick Actions */
 .quick-actions .action-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -168,7 +164,6 @@ textarea.form-control {
     min-width: 150px;
 }
 
-/* FAQ Section */
 .faq-item {
     margin-bottom: 10px;
 }
@@ -199,7 +194,6 @@ textarea.form-control {
     font-size: 0.9rem;
 }
 
-/* Ticket Status */
 #ticketList {
     margin-bottom: 20px;
 }
@@ -212,7 +206,6 @@ textarea.form-control {
     background-color: #f8f9fa;
 }
 
-/* Popup styles */
 .popup {
     display: none;
     position: fixed;
@@ -248,7 +241,6 @@ textarea.form-control {
     margin-bottom: 20px;
 }
 
-/* Responsive styles */
 @media (max-width: 600px) {
     header {
         flex-direction: column;

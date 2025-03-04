@@ -120,7 +120,6 @@ function loadCurrentPlan() {
     const renewBtn = currentPlanElement.querySelector('.btn-primary');
     renewBtn.addEventListener('click', function() {
         alert('Redirecting to renewal page...');
-        // window.location.href = 'renew.html?plan=' + encodeURIComponent(latestTransaction.plan);
     });
 }
 

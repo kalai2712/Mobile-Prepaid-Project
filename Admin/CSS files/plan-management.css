@@ -25,7 +25,6 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar styling (same as admin dashboard) */
 .sidebar {
     width: 260px;
     background-color: var(--bg-sidebar);
@@ -87,7 +86,6 @@ body {
     text-align: center;
 }
 
-/* Main content area */
 .main-content {
     flex-grow: 1;
     margin-left: 260px;
@@ -129,7 +127,6 @@ body {
     font-weight: 500;
 }
 
-/* Plans container */
 .plans-container {
     background-color: white;
     border-radius: var(--border-radius);
@@ -243,7 +240,6 @@ body {
     background-color: var(--secondary-color);
 }
 
-/* Modal styles */
 .modal {
     display: none;
     position: fixed;
@@ -298,7 +294,6 @@ body {
     border: 1px solid #ddd;
 }
 
-/* Responsive styles */
 @media (max-width: 992px) {
     .sidebar {
         width: 80px;

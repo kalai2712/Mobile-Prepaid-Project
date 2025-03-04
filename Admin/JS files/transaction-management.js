@@ -1,4 +1,3 @@
-// Sample transaction data with Indian Rupees
 let transactions = [
     { id: "TX001", user: "Kalai", date: "2025-02-28", amount: 399, type: "recharge", status: "completed" },
     { id: "TX002", user: "Dilip", date: "2025-02-27", amount: 999, type: "subscription", status: "completed" },
@@ -14,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const amountFilter = document.getElementById('amountFilter');
     const refundForm = document.getElementById('refundForm');
 
-    // Render transactions table
     function renderTransactions(transactionList) {
         transactionsTableBody.innerHTML = '';
         transactionList.forEach(transaction => {
@@ -35,10 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initial render
     renderTransactions(transactions);
 
-    // Search and filter functionality
     function filterTransactions() {
         let filteredTransactions = [...transactions];
         
@@ -65,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
     dateFilter.addEventListener('change', filterTransactions);
     amountFilter.addEventListener('change', filterTransactions);
 
-    // Refund modal handling
     window.openRefundModal = function(transactionId) {
         const transaction = transactions.find(t => t.id === transactionId);
         document.getElementById('refundTransactionId').value = transactionId;
@@ -104,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
         alert(`Refund of ₹${refundAmount.toFixed(2)} processed for ${transaction.user}.`);
     });
 
-    // Generate receipt
     window.generateReceipt = function(transactionId) {
         const transaction = transactions.find(t => t.id === transactionId);
         const receipt = `
@@ -117,15 +111,13 @@ document.addEventListener('DOMContentLoaded', function() {
             Status: ${transaction.status}
             Generated on: ${new Date().toLocaleString()}
         `;
-        alert(receipt); // In a real app, this could open a PDF or new tab
+        alert(receipt); 
     };
 
-    // Open modal
     window.openModal = function(modalId) {
         document.getElementById(modalId).style.display = 'block';
     };
 
-    // Close modal
     window.closeModal = function(modalId) {
         document.getElementById(modalId).style.display = 'none';
     };

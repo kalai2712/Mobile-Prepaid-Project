@@ -1,4 +1,3 @@
-// Common functions from app.js
 function saveMobileNumber(mobileNumber) {
     localStorage.setItem('MOBILE_KEY', mobileNumber);
 }
@@ -226,7 +225,6 @@ function redirectToPayment(price, validity, data, benefits) {
     window.location.href = 'payment.html';
 }
 
-// Original plans.js code
 const plansData = {
     'Popular Plans': [
         { price: 299, validity: '28 days', data: '2GB/day', benefits: 'Unlimited calls, 100 SMS/day' },

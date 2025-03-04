@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Ensure canvas elements are available before initializing charts
     const userActivityCanvas = document.getElementById('userActivityChart');
     const salesDistributionCanvas = document.getElementById('salesDistributionChart');
 
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    // User Activity Chart
     const userActivityCtx = userActivityCanvas.getContext('2d');
     const userActivityChart = new Chart(userActivityCtx, {
         type: 'line',
@@ -57,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Sales Distribution Chart
     const salesDistributionCtx = salesDistributionCanvas.getContext('2d');
     const salesDistributionChart = new Chart(salesDistributionCtx, {
         type: 'doughnut',
@@ -81,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add event listeners for chart filter changes
     document.getElementById('userActivityTimeframe').addEventListener('change', function() {
         userActivityChart.data.datasets[0].data = userActivityChart.data.datasets[0].data.map(value => 
             value * (Math.random() * 0.2 + 0.9)

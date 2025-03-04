@@ -1,4 +1,3 @@
-// Common functions for mobile number handling across pages
 function saveMobileNumber(mobileNumber) {
     localStorage.setItem('MOBILE_KEY', mobileNumber);
 }
@@ -11,20 +10,16 @@ function validateMobileNumber(mobileNumber) {
     return /^\d{10}$/.test(mobileNumber);
 }
 
-// Function to save selected plan details
 function saveSelectedPlan(planDetails) {
     localStorage.setItem('SELECTED_PLAN', JSON.stringify(planDetails));
 }
 
-// Function to get selected plan details
 function getSelectedPlan() {
     const planJSON = localStorage.getItem('SELECTED_PLAN');
     return planJSON ? JSON.parse(planJSON) : null;
 }
 
-// Function to display custom mobile number change modal
 function showMobileChangeModal() {
-    // Create modal container if it doesn't exist
     let modalContainer = document.getElementById('mobileChangeModal');
     
     if (!modalContainer) {
@@ -32,7 +27,6 @@ function showMobileChangeModal() {
         modalContainer.id = 'mobileChangeModal';
         modalContainer.className = 'modal-container';
         
-        // Modal HTML structure
         modalContainer.innerHTML = `
             <div class="modal-content">
                 <div class="modal-header">
@@ -51,7 +45,6 @@ function showMobileChangeModal() {
             </div>
         `;
         
-        // Add modal styles
         const modalStyle = document.createElement('style');
         modalStyle.textContent = `
             .modal-container {
@@ -155,7 +148,6 @@ function showMobileChangeModal() {
         document.head.appendChild(modalStyle);
         document.body.appendChild(modalContainer);
         
-        // Set up event listeners for the modal
         const closeBtn = modalContainer.querySelector('.close-btn');
         const cancelBtn = modalContainer.querySelector('.cancel-btn');
         const saveBtn = modalContainer.querySelector('.save-btn');
@@ -170,7 +162,6 @@ function showMobileChangeModal() {
             modalContainer.style.display = 'none';
         });
         
-        // Restrict input to numbers only
         mobileInput.addEventListener('input', (e) => {
             e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
             errorText.textContent = '';
@@ -182,7 +173,6 @@ function showMobileChangeModal() {
             if (validateMobileNumber(newMobile)) {
                 saveMobileNumber(newMobile);
                 
-                // Update mobile display on the page
                 const mobileDisplayElement = document.querySelector('.mobile-number div div:nth-child(2)');
                 if (mobileDisplayElement) {
                     mobileDisplayElement.textContent = newMobile;
@@ -195,7 +185,6 @@ function showMobileChangeModal() {
         });
     }
     
-    // Show modal and pre-fill with current number
     modalContainer.style.display = 'flex';
     const currentMobile = getMobileNumber() || '';
     const mobileInput = modalContainer.querySelector('#newMobileInput');
@@ -204,30 +193,25 @@ function showMobileChangeModal() {
     modalContainer.querySelector('#mobileError').textContent = '';
 }
 
-// Function to handle plans page initialization
 function initPlansPage() {
     const mobileNumber = getMobileNumber();
     
-    // If no mobile number is stored, redirect back to home
     if (!mobileNumber) {
         window.location.href = 'index.html';
         return;
     }
     
-    // Display mobile number in plans page
     const mobileDisplayElement = document.querySelector('.mobile-number div div:nth-child(2)');
     if (mobileDisplayElement) {
         mobileDisplayElement.textContent = mobileNumber;
     }
     
-    // Handle change button click
     const changeBtn = document.querySelector('.change-btn');
     if (changeBtn) {
         changeBtn.addEventListener('click', showMobileChangeModal);
     }
 }
 
-// Function to redirect to payment page with plan details
 function redirectToPayment(price, validity, data, benefits) {
     const planDetails = {
         price: price,
@@ -236,14 +220,11 @@ function redirectToPayment(price, validity, data, benefits) {
         benefits: benefits
     };
     
-    // Save plan details to localStorage
     saveSelectedPlan(planDetails);
     
-    // Redirect to payment page
     window.location.href = 'payment.html';
 }
 
-// Home page specific initialization
 document.addEventListener('DOMContentLoaded', () => {
     const mobileInput = document.getElementById('mobileNumber');
     const rechargeBtn = document.querySelector('.btn-recharge-hero');
@@ -266,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'plan.html';
     });
 
-    const authState = getAuthState(); // Assuming this function exists elsewhere
+    const authState = getAuthState(); 
     if (authState?.isLoggedIn) {
         mobileInput.value = authState.mobileNumber;
     }

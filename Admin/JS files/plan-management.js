@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Sample plan data with Indian Rupees
     let plans = [
         { id: 1, name: "Basic Plan", price: 199.00, validity: 28, benefits: "5GB Data, 100 Minutes", status: "active" },
         { id: 2, name: "Premium Plan", price: 399.00, validity: 28, benefits: "15GB Data, Unlimited Calls", status: "active" },
@@ -13,8 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const planForm = document.getElementById('planForm');
     const modalTitle = document.getElementById('modalTitle');
     let editingPlanId = null;
-
-    // Render plans table
     function renderPlans(planList) {
         plansTableBody.innerHTML = '';
         planList.forEach(plan => {
@@ -35,17 +32,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initial render
     renderPlans(plans);
 
-    // Filter functionality
     statusFilter.addEventListener('change', function() {
         const status = this.value;
         const filteredPlans = status === 'all' ? plans : plans.filter(plan => plan.status === status);
         renderPlans(filteredPlans);
     });
 
-    // Add Plan Modal
     addPlanBtn.addEventListener('click', () => {
         editingPlanId = null;
         modalTitle.textContent = 'Add New Plan';
@@ -53,12 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
         planFormModal.style.display = 'block';
     });
 
-    // Close Modal
     document.querySelector('.close-modal').addEventListener('click', () => {
         planFormModal.style.display = 'none';
     });
 
-    // Handle Form Submission
     planForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const newPlan = {
@@ -80,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
         planFormModal.style.display = 'none';
     });
 
-    // Handle table actions
     plansTableBody.addEventListener('click', (e) => {
         const id = parseInt(e.target.dataset.id);
         const plan = plans.find(p => p.id === id);

@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Management - MobilePay Admin</title>
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Link to custom CSS -->
-    <link rel="stylesheet" href="/Prepaid - Project/Admin/CSS files/user-management.css">
+    <link rel="stylesheet" href="/PrepaidProject/Admin/CSS files/user-management.css">
 </head>
 <body>
-    <!-- Sidebar navigation (same as admin dashboard) -->
     <aside class="sidebar">
         <div class="sidebar-header">
             <h1>PayNGo Admin</h1>
@@ -53,7 +50,6 @@
         </div>
     </aside>
 
-    <!-- Main content area -->
     <main class="main-content">
         <div class="page-header">
             <div class="page-title">
@@ -67,7 +63,6 @@
             </div>
         </div>
 
-        <!-- User Listing Section -->
         <div class="card">
             <div class="d-flex justify-between align-center mb-20 flex-wrap gap-10">
                 <h2>Users</h2>
@@ -77,14 +72,12 @@
             </div>
             
             <div class="d-flex justify-between align-center mb-20 flex-wrap gap-20">
-                <!-- Search Box -->
                 <div class="search-box">
                     <input type="text" id="searchInput" class="form-control" placeholder="Search users...">
                     <span class="search-icon"><i class="fas fa-search"></i></span>
                 </div>
                 
                 <div class="d-flex gap-10 flex-wrap">
-                    <!-- Filter Dropdown -->
                     <select id="statusFilter" class="form-control">
                         <option value="">All Status</option>
                         <option value="active">Active</option>
@@ -115,18 +108,14 @@
                         </tr>
                     </thead>
                     <tbody id="userTableBody">
-                        <!-- Table body will be filled by JavaScript -->
                     </tbody>
                 </table>
             </div>
             
-            <!-- Pagination -->
             <div class="pagination" id="pagination">
-                <!-- Pagination buttons will be added by JavaScript -->
             </div>
         </div>
 
-        <!-- Add User Modal -->
         <div id="addUserModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -167,7 +156,6 @@
             </div>
         </div>
 
-        <!-- Edit User Modal -->
         <div id="editUserModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -212,7 +200,6 @@
             </div>
         </div>
 
-        <!-- User Details Modal -->
         <div id="userDetailsModal" class="modal">
             <div class="modal-content" style="max-width: 800px; width: 90%;">
                 <div class="modal-header">
@@ -220,7 +207,6 @@
                     <button class="close" onclick="closeModal('userDetailsModal')">&times;</button>
                 </div>
                 <div id="userDetailsContent">
-                    <!-- User Info -->
                     <div class="user-info mb-20">
                         <div class="user-info-item">
                             <div class="info-label">ID</div>
@@ -256,15 +242,12 @@
                         </div>
                     </div>
                     
-                    <!-- Tabs -->
                     <div class="tabs">
                         <ul class="tab-nav">
                             <li class="tab-link active" data-tab="transactions">Transactions</li>
                             <li class="tab-link" data-tab="activity">Activity Log</li>
-                            <!-- <li class="tab-link" data-tab="notes">Notes</li> -->
                         </ul>
                         
-                        <!-- Transactions Tab -->
                         <div id="transactions" class="tab-content active">
                             <table>
                                 <thead>
@@ -277,12 +260,10 @@
                                     </tr>
                                 </thead>
                                 <tbody id="transactionsTableBody">
-                                    <!-- Will be filled by JS -->
                                 </tbody>
                             </table>
                         </div>
                         
-                        <!-- Activity Log Tab -->
                         <div id="activity" class="tab-content">
                             <table>
                                 <thead>
@@ -293,19 +274,9 @@
                                     </tr>
                                 </thead>
                                 <tbody id="activityTableBody">
-                                    <!-- Will be filled by JS -->
                                 </tbody>
                             </table>
                         </div>
-                        
-                        <!-- Notes Tab -->
-                        <!-- <div id="notes" class="tab-content">
-                            <div class="form-group">
-                                <label for="userNotes">User Notes</label>
-                                <textarea id="userNotes" class="form-control" rows="4"></textarea>
-                            </div>
-                            <button id="saveNotesBtn" class="btn btn-primary">Save Notes</button>
-                        </div> -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -314,7 +285,6 @@
             </div>
         </div>
 
-        <!-- Confirmation Modal -->
         <div id="confirmationModal" class="modal">
             <div class="modal-content" style="max-width: 400px;">
                 <div class="modal-header">
@@ -332,7 +302,6 @@
         </div>
     </main>
 
-    <!-- Link to custom JS -->
-    <script src="/Prepaid - Project/Admin/JS files/user-management.js"></script>
+    <script src="/PrepaidProject/Admin/JS files/user-management.js"></script>
 </body>
 </html>

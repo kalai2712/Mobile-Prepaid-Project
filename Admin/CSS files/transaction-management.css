@@ -29,7 +29,6 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar styles (same as admin dashboard) */
 .sidebar {
     width: 260px;
     background-color: var(--card-bg);
@@ -91,7 +90,6 @@ body {
     text-align: center;
 }
 
-/* Main content area */
 .main-content {
     flex-grow: 1;
     margin-left: 260px;
@@ -133,7 +131,6 @@ body {
     font-weight: 500;
 }
 
-/* Transactions container */
 .transactions-container {
     background-color: var(--card-bg);
     border-radius: var(--border-radius);
@@ -324,7 +321,6 @@ tr:hover {
     background-color: #5a6268;
 }
 
-/* Modal styles */
 .modal {
     display: none;
     position: fixed;
@@ -411,7 +407,6 @@ tr:hover {
     border: 1px solid #ced4da;
 }
 
-/* Responsive styles */
 @media (max-width: 992px) {
     .sidebar {
         width: 80px;
